@@ -3,7 +3,7 @@ const cors = require("cors");
 const userRoutes = require("./routes/UserRoutes");
 require('./dbconnection');
 const app = express();
-
+const server = http.createServer(app);
 app.use(cors());
 app.use(express.json());
 
@@ -15,6 +15,6 @@ app.get("/", (req, res) =>
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, ()=>{
+server.listen(PORT, ()=>{
   console.log('listening to', PORT)
   });
